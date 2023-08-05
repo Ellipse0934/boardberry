@@ -43,7 +43,7 @@ inline void generate_moves_knight(Board& board, u8 square, std::vector<BitBoard>
     generate_moves_nonsliding(board, square, attack_generator_functions[white_knight], moves);
 }
 
-// TODO: Castling
+// TODO(#6): Castling
 inline void generate_moves_king(Board& board, u8 square, std::vector<BitBoard> moves) {
     generate_moves_nonsliding(board, square, attack_generator_functions[white_king], moves);
 }
