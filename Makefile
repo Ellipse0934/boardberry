@@ -1,7 +1,7 @@
 PROJECTNAME := $(shell basename $(shell pwd))
 
-BUILDDIR =
 SOURCEDIR := src
+BUILDDIR =
 SCSOURCES := $(shell echo `find . -type f -path "./**/$(PROJECTNAME)/*.cpp"` | cut -c 3-)
 OBJECTS = $(foreach SCSOURCE,$(SCSOURCES),$(addprefix $(BUILDDIR)/,$(shell basename $(SCSOURCE:%.cpp=%.o))))
 BINARY = $(addprefix $(BUILDDIR)/,$(PROJECTNAME))
@@ -59,7 +59,7 @@ else
 	NULLPIPE = NUL
 endif
 
-main: init $(BINARY)
+build: init $(BINARY)
 
 $(BINARY): $(BINARYSOURCES) libboardberry.a
 	$(CXX) $(CFLAGS) $(BINARYSOURCES) -I$(HEADERDIR) -L$(BUILDDIR) -lboardberry -o $@
@@ -89,7 +89,18 @@ compile-tests: main make-tests-out-dir
 test: compile-tests
 	./test.sh $(BUILDDIR)/tests
 
+SEPERATOR = "--------------------"
+
 .PHONY: help
 help:
-# TODO(#9): implement help for the makefile
-	$(error TODO implement help for the makefile)
+	@-echo $(SEPERATOR)
+	@-echo "Available subcommands:"
+	@-echo -e "\tbuild: Builds the project"
+	@-echo -e "\ttest:   Builds and tests the project"
+	@-echo $(SEPERATOR)
+	@-echo "Available options:"
+	@-echo -e "RELEASE=(true | false):\n\t\tIf true, compiles in release mode, with optimizations,"
+	@-echo -e "\t\tif false compiles in debug mode, with debug info and minimal optimizations.\n\t\tdefault: false"
+	@-echo -e "AGGRESSIVE_OPTIMIZE=(true | false):\n\t\tIf true, compiles with \`-Ofast -mtune=native -march=native\`,"
+	@-echo -e "\t\t!!!Only effective with RELEASE being true!!!. default: false"
+	@-echo $(SEPERATOR)
