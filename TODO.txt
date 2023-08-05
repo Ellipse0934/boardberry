@@ -1,2 +1,1 @@
-// TODO(#3): A Readme
 // TODO(#4): Create tests for the non-sliding move and attack generation
