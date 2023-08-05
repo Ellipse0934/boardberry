@@ -83,7 +83,7 @@ make-tests-out-dir:
 
 .PHONY: compile-tests
 compile-tests: main make-tests-out-dir
-	$(foreach TESTSOURCE,$(TESTSSOURCE),`$(CXX) $(CFLAGS) -I$(HEADERDIR) -L$(BUILDDIR) -l$(PROJECTNAME) $(TESTSOURCE) -o $(addprefix $(BUILDDIR)/tests/,$(shell basename $(TESTSOURCE:%.cpp=%)))`)
+	$(foreach TESTSOURCE,$(TESTSSOURCE),`$(CXX) $(CFLAGS) $(TESTSOURCE) -I$(HEADERDIR) -L$(BUILDDIR) -l$(PROJECTNAME) -o $(addprefix $(BUILDDIR)/tests/,$(shell basename $(TESTSOURCE:%.cpp=%)))`)
 
 .PHONY: test
 test: compile-tests
