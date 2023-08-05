@@ -92,3 +92,8 @@ compile-tests: main make-tests-out-dir
 .PHONY: test
 test: compile-tests
 	./test.sh $(BUILDDIR)/tests
+
+.PHONY: help
+help:
+# TODO(#9): implement help for the makefile
+	$(error TODO implement help for the makefile)
