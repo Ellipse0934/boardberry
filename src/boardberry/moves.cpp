@@ -1,4 +1,4 @@
-// TODO: Sliding pieces (magic bitboards)
+// TODO(#5): Sliding pieces (magic bitboards)
 
 #include "board.hpp"
 #include "tables.hpp"
