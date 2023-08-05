@@ -1,0 +1,25 @@
+name: Build and test (clang++)
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+    CXX: clang++
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build (clang++)
+      run: make
+    - name: Test (clang++)
+      run: make test
+    - name: Build (release, aggressive optimizations) (clang++)
+      run: make RELEASE=true AGGRESSIVE_OPTIMIZE=true
+    - name: Test (release, aggressive optimizations) (clang++)
+      run: make test RELEASE=true AGGRESSIVE_OPTIMIZE=true
