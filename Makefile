@@ -54,10 +54,6 @@ endif
 ifneq ($(OS),Windows_NT)
 	UNAME_S := $(shell uname -s)
 
-	ifneq ($(UNAME_S),Darwin)
-		CFLAGS += -static
-	endif
-
 	NULLPIPE = /dev/null
 else
 	NULLPIPE = NUL
