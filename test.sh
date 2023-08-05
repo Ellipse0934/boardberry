@@ -30,6 +30,7 @@ if [ $FAILED_X = 0 ]; then
     echo "All Tests ${PASSED} :)"
 else
     echo "$FAILED_X Test(s) Failed :("
+    exit 1
 fi
 
 exit 0

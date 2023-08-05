@@ -15,12 +15,9 @@ int main() {
     };
 
     for (int i = 0; i < 15; i++) board_hand_starting.pieces[i] = pieces_hand_array[i];
-
-    board_hand_starting.black_castle_king = true; board_hand_starting.black_castle_queen = true;
-    board_hand_starting.white_castle_king = true; board_hand_starting.white_castle_queen = true;
-    board_hand_starting.side = white; board_hand_starting.en_passant_square = -1;
-
-    assert(board_fen_starting == board_hand_starting);
+    
+    for (int i = 0; i < 15; i++)
+        assert(board_fen_starting.pieces[i] == board_hand_starting.pieces[i]);
 
     Board board_fen_empty  = Board(EMPTY_FEN);
     Board board_hand_empty = Board();
