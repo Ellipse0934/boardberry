@@ -48,7 +48,7 @@ inline void generate_moves_king(Board& board, u8 square, std::vector<BitBoard> m
     generate_moves_nonsliding(board, square, attack_generator_functions[white_king], moves);
 }
 
-// TODO: En passant
+// TODO(#7): En passant
 BitBoard generate_moves_pawn(const Board& board, const u8 square) {
     u64 pawn = (1ULL << square);
 
