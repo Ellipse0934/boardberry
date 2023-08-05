@@ -21,7 +21,7 @@ enum Pieces {
     black_pawn,
     white_pieces,
     black_pieces,
-    all_pieces,
+    all_pieces
 };
 
 enum Attacks {
@@ -50,16 +50,17 @@ public:
     inline bool operator== (const Board& rhs) const {
         bool pieces_eq = true;
         for (int i = 0; i < 15; i++) {
-            if ((unsigned long long) pieces[i] != (unsigned long long) rhs.pieces[i]) {
+            if (pieces[i] != rhs.pieces[i]) {
                 pieces_eq = false; break;
             }
-            
         }
 
         bool attacks_eq = attacks[0] == rhs.attacks[0] && attacks[1] == rhs.attacks[1];
 
-        return pieces_eq && attacks_eq;
+        return pieces_eq && attacks_eq && (side == rhs.side);
     }
+
+    void generateAttacks();
 
     Board() = default;
     Board(std::string);

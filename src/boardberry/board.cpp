@@ -6,6 +6,9 @@
 #define CTPI(x) (CHAR_TO_PIECE[(x)])
 
 Board::Board(std::string x) {
+    // I know, I know, I can just use an array and it will be faster and stuff,
+    // but it's just a one time cost, so I don't really care.
+
     std::unordered_map<char, int> CHAR_TO_PIECE = {
         {'K', white_king},
         {'k', black_king},
@@ -74,4 +77,6 @@ Board::Board(std::string x) {
 
         file++;
     }
+
+    this->generateAttacks();
 }

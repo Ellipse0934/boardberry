@@ -20,12 +20,12 @@ int main() {
     board_hand_starting.white_castle_king = true; board_hand_starting.white_castle_queen = true;
     board_hand_starting.side = white; board_hand_starting.en_passant_square = -1;
 
-    assert(board_fen_starting ==  board_hand_starting);
+    assert(board_fen_starting == board_hand_starting);
 
     Board board_fen_empty  = Board(EMPTY_FEN);
     Board board_hand_empty = Board();
 
-    assert(board_fen_empty ==  board_hand_empty);
+    assert(board_fen_empty == board_hand_empty);
 
     return 0;
 }

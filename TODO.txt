@@ -1,0 +1,13 @@
+# 0.0.1
+[x] A board class
+[x] FEN String support
+[ ] Non-sliding piece move generation
+[x] A simple testing framework
+
+# 0.0.2
+[x] Non-sliding piece move generation
+[ ] A Readme
+[ ] Create tests for the non-sliding move and attack generation
+[ ] src/boardberry/moves.cpp:48:1 Add support for En Passant
+[ ] src/boardberry/moves.cpp:44:1 Add support for castling
+[ ] src/boardberry/moves.cpp:44:1 Add support for sliding pieces

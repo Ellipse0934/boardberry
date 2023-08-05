@@ -14,7 +14,7 @@ NULLPIPE =
 RELEASE ?=false
 AGGRESSIVE_OPTIMIZE ?=false
 
-CFLAGS = -Wall -Wextra -Werror -std=gnu++20
+CFLAGS = -Wall -Wextra -Werror -std=c++20
 
 CC_NAME =
 
@@ -43,7 +43,8 @@ else
 		CFLAGS += -Ofast -mtune=native -march=native
 		ifeq ($(CC_NAME),gnu)
 			CFLAGS += -fmodulo-sched -fmodulo-sched-allow-regmoves \
-				      -fgcse-las -fdevirtualize-speculatively -fira-hoist-pressure 
+				      -fgcse-las -fdevirtualize-speculatively -fira-hoist-pressure \
+					  -floop-parallelize-all -ftree-parallelize-loops=4
 		endif
 	else
 		CFLAGS += -O3
