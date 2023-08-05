@@ -82,7 +82,7 @@ make-tests-out-dir:
 	-mkdir $(BUILDDIR)/tests
 
 .PHONY: compile-tests
-compile-tests: main make-tests-out-dir
+compile-tests: build make-tests-out-dir
 	$(foreach TESTSOURCE,$(TESTSSOURCE),`$(CXX) $(CFLAGS) $(TESTSOURCE) -I$(HEADERDIR) -L$(BUILDDIR) -l$(PROJECTNAME) -o $(addprefix $(BUILDDIR)/tests/,$(shell basename $(TESTSOURCE:%.cpp=%)))`)
 
 .PHONY: test
