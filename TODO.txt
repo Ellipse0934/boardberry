@@ -10,4 +10,4 @@
 [ ] Create tests for the non-sliding move and attack generation
 [ ] src/boardberry/moves.cpp:48:1 Add support for En Passant
 [ ] src/boardberry/moves.cpp:44:1 Add support for castling
-[ ] src/boardberry/moves.cpp:44:1 Add support for sliding pieces
+[ ] src/boardberry/moves.cpp:44:1 Add support for sliding pieces 
